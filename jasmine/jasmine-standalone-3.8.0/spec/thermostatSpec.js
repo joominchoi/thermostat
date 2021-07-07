@@ -29,4 +29,19 @@ describe('Thermostat', () => {
     expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
   
+  it('has power saving mode(PSM) on by default', () => {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
+  it('can switch PSM off', () => {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+  });
+  
+  it('can switch PSM back on', () => {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    thermostat.switchPowerSavingModeOn();
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
 });
